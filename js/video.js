@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", () => {
 	console.log("Play Video");
 	video.play()
-	document.querySelector("#volume").innerHTML = slider.value + "%";
+	document.querySelector("#volume").innerHTML = video.volume * 100 + '%';
 });
 
 document.querySelector('#pause').addEventListener("click", () => {
