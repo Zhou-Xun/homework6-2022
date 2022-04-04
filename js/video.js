@@ -41,10 +41,10 @@ document.querySelector('#skip').addEventListener("click", () => {
 document.querySelector('#mute').addEventListener("click", () => {
 	if (video.muted) {
 		video.muted = false
-		document.querySelector('#mute').innerText = "Mute"
+		document.querySelector('#mute').innerHTML = "Mute"
 	} else {
 		video.muted = true
-		document.querySelector('#mute').innerText = "Unmute"
+		document.querySelector('#mute').innerHTML = "Unmute"
 	}
 })
 
