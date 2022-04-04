@@ -6,17 +6,14 @@ window.addEventListener("load", function() {
 });
 
 document.querySelector("#play").addEventListener("click", () => {
-	if (video.paused) {
-		console.log("Play Video");
-		video.play();
-	}
+	console.log("Play Video");
+	video.play()
 	document.querySelector("#volume").innerHTML = slider.value + "%";
 });
 
 document.querySelector('#pause').addEventListener("click", () => {
-	if (!video.paused) {
-		video.pause();
-	}
+	console.log("Pause Video");
+	video.pause()
 })
 
 document.querySelector('#slower').addEventListener("click", () => {
@@ -39,6 +36,7 @@ document.querySelector('#skip').addEventListener("click", () => {
 })
 
 document.querySelector('#mute').addEventListener("click", () => {
+	console.log(document.querySelector('#mute').innerHTML)
 	if (video.muted) {
 		video.muted = false
 		document.querySelector('#mute').innerHTML = "Mute"
