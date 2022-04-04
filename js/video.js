@@ -1,59 +1,39 @@
 const video = document.querySelector("#player1");
 
-
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
-
 });
 
-document.querySelector("#play").addEventListener("click", function() {
-	console.log("Play Video");
-});
-
-// show volume
-document.querySelector('#volume').innerHTML = video.volume * 100 + '%';
-console.log(video.volume);
-
-// change slider
-const slider = document.querySelector('#slider')
-window.setInterval(changeVolume, 1);
-
-function changeVolume() {
-	video.volumn = slider.value / 100;
-	console.log(video.volumn * 100 + '%');
-	// document.querySelector('#volume').innerHTML = video.volume * 100 + '%';
-	document.querySelector('#volume').innerHTML = slider.value + '%';
-}
-
-function play() {
+document.querySelector("#play").addEventListener("click", () => {
 	if (video.paused) {
+		console.log("Play Video");
 		video.play();
 	}
-}
+});
 
-function pause() {
+document.querySelector('#pause').addEventListener("click", () => {
 	if (!video.paused) {
 		video.pause();
 	}
-}
+})
 
-function slower() {
+document.querySelector('#slower').addEventListener("click", () => {
 	video.playbackRate *= 0.95;
 	console.log(`New speed is ${video.playbackRate}`);
-}
+})
 
-function faster() {
+document.querySelector('#faster').addEventListener("click", () => {
 	video.playbackRate /= 0.95;
 	console.log(`New speed is ${video.playbackRate}`);
-}
+})
 
-function skip(value) {
+document.querySelector('#skip').addEventListener("click", () => {
 	console.log(`Original location ${video.currentTime}`);
-	video.currentTime += value;
+	video.currentTime -= 15;
 	console.log(`New location ${video.currentTime}`);
-}
+})
 
-function mute() {
+document.querySelector('#mute').addEventListener("click", () => {
 	if (video.muted) {
 		video.muted = false
 		document.getElementById("mute").innerText = "mute"
@@ -61,13 +41,24 @@ function mute() {
 		video.muted = true
 		document.getElementById("mute").innerText = "unmute"
 	}
-}
+})
 
-function oldStyle() {
+document.querySelector('#vintage').addEventListener("click", () => {
 	video.style.filter = "grayscale(100%)";
-}
+})
 
-function orig() {
+document.querySelector('#orig').addEventListener("click", () => {
 	video.style.filter = "none";
-}
+})
 
+
+
+// show volume
+document.querySelector('#volume').innerHTML = video.volume * 100 + '%';
+
+// change slider
+const slider = document.querySelector('#slider')
+document.querySelector('#slider').addEventListener("change", () => {
+	video.volume = slider.value / 100;
+	document.querySelector('#volume').innerHTML = slider.value + '%';
+})
